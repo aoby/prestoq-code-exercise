@@ -5,7 +5,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrestoQServicesEncodingTest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrestoQServicesEncodingExample", "PrestoQServicesEncodingExample\PrestoQServicesEncodingExample.csproj", "{A023028B-16B5-4E0B-ABF0-7373589C0441}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "PrestoQServicesEncoding", "..\PrestoQServicesEncoding\PrestoQServicesEncoding\PrestoQServicesEncoding.shproj", "{BCCCC282-1F3C-4CAF-B531-9C4590A07BDB}"
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "PrestoQServicesEncoding", "PrestoQServicesEncoding\PrestoQServicesEncoding.shproj", "{BCCCC282-1F3C-4CAF-B531-9C4590A07BDB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
