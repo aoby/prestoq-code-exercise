@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{BCCCC282-1F3C-4CAF-B531-9C4590A07BDB}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>PrestoQServicesEncoding</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ProductCatalogField.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ProductCatalogReader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnitOfMeasure.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ProductRecord.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)InputType.cs" />
+  </ItemGroup>
+</Project>
