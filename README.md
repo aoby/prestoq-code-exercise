@@ -1,5 +1,5 @@
 # prestoq-code-exercise
-![](https://ci.appveyor.com/api/projects/status/m8qnf0d1n91mo5eb?svg=true)
+[![](https://ci.appveyor.com/api/projects/status/m8qnf0d1n91mo5eb?svg=true)](https://ci.appveyor.com/project/AndrewOberhardt/prestoq-code-exercise)
 
 My response to [https://github.com/prestoqinc/code-exercise-services](https://github.com/prestoqinc/code-exercise-services)
 
