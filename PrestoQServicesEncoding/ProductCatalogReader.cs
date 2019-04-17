@@ -5,18 +5,33 @@ using System.IO;
 
 namespace PrestoQServicesEncoding
 {
+    /// <summary>
+    /// Reads and parses a store product info file into ProductRecords
+    /// </summary>
     public class ProductCatalogReader
     {
-        private StreamReader reader;
+        #region Members
         public const decimal TAX_RATE = 0.07775m; // 7.775 %
+        private static readonly CultureInfo cultureInfo = new CultureInfo("en-US");
+        private readonly StreamReader reader;
+        #endregion
 
-        private static CultureInfo cultureInfo = new CultureInfo("en-US");
-
-        public ProductCatalogReader(string fileName)
+        #region Constructor
+        /// <summary>
+        /// Initializes a new instance of the <see cref="T:PrestoQServicesEncoding.ProductCatalogReader"/> class.
+        /// </summary>
+        /// <param name="path">Product info file path to read</param>
+        public ProductCatalogReader(string path)
         {
-            this.reader = new StreamReader(fileName);
+            this.reader = new StreamReader(path);
         }
+        #endregion
 
+        #region Instance Methods
+        /// <summary>
+        /// Reads all lines in the input file
+        /// </summary>
+        /// <returns>Parsed ProductRecords</returns>
         public IEnumerable<ProductRecord> ReadLines()
         {
             ProductRecord productRecord;
@@ -26,6 +41,10 @@ namespace PrestoQServicesEncoding
             }
         }
 
+        /// <summary>
+        /// Reads a single line from the input file
+        /// </summary>
+        /// <returns>Parsed ProductRecord</returns>
         public ProductRecord ReadLine()
         {
             string line = this.reader.ReadLine();
@@ -36,7 +55,14 @@ namespace PrestoQServicesEncoding
 
             return Parse(line);
         }
+        #endregion
 
+        #region Static Methods
+        /// <summary>
+        /// Parse a line of text into a ProductRecord
+        /// </summary>
+        /// <returns>ProductRecord</returns>
+        /// <param name="line">line to parse, from a store product info file</param>
         public static ProductRecord Parse(string line)
         {
             var productRecord = new ProductRecord()
@@ -82,13 +108,26 @@ namespace PrestoQServicesEncoding
             return productRecord;
         }
 
-        public static T ReadField<T>(string line, ProductCatalogField field)
+        /// <summary>
+        /// Reads a specific field from an input file line
+        /// </summary>
+        /// <returns>The parsed field</returns>
+        /// <param name="line">line to parse, from a store product info file</param>
+        /// <param name="field">Field definition <see cref="ProductCatalogField"/></param>
+        /// <typeparam name="T">Return type</typeparam>
+        internal static T ReadField<T>(string line, ProductCatalogField field)
         {
             var value = ReadField(line, field.Start, field.End);
             return (T)ParseField(value, field.InputType);
         }
 
-        public static object ParseField(string value, InputType inputType)
+        /// <summary>
+        /// Parses a field value into an object based on a specified input type
+        /// </summary>
+        /// <returns>parsed field, as appropriate object type</returns>
+        /// <param name="value">field value (from input file)</param>
+        /// <param name="inputType">Input type</param>
+        internal static object ParseField(string value, InputType inputType)
         {
             switch(inputType)
             {
@@ -111,7 +150,14 @@ namespace PrestoQServicesEncoding
             }
         }
 
-        public static string ReadField(string line, int start, int end)
+        /// <summary>
+        /// Reads a field from a line of input based on start and end positions
+        /// </summary>
+        /// <returns>The substring between start and end, trimmed</returns>
+        /// <param name="line">input file line</param>
+        /// <param name="start">start position, 1-based</param>
+        /// <param name="end">end position, 1-based</param>
+        internal static string ReadField(string line, int start, int end)
         {
             // start is 1-based; line is 0-based
             int startIndex = start - 1;
@@ -120,7 +166,15 @@ namespace PrestoQServicesEncoding
             return line.Substring(startIndex, length).Trim();
         }
 
-        // Math.Round only supports AwayFromZero (up for positive numbers) and ToEven rounding, but not down.
+        /// <summary>
+        /// Rounds a decimal value to a given precision, half down.
+        /// </summary>
+        /// <remarks>
+        /// Math.Round only supports AwayFromZero (up for positive numbers) and ToEven rounding, but not down.
+        /// </remarks>
+        /// <returns>The rounded value</returns>
+        /// <param name="value">the value to round</param>
+        /// <param name="precision">precision</param>
         public static decimal RoundHalfDown(decimal value, int precision)
         {
             decimal factor = (decimal)Math.Pow(10, precision);
@@ -134,5 +188,6 @@ namespace PrestoQServicesEncoding
             // Not half? Round normally
             return Math.Round(expanded) / factor;
         }
+        #endregion
     }
 }

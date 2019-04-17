@@ -2,6 +2,12 @@
 
 namespace PrestoQServicesEncoding
 {
+    /// <summary>
+    /// Product catalog field definiton
+    /// </summary>
+    /// <remarks>
+    /// Specifies the start, end, and InputType for each product catalog field
+    /// </remarks>
     public class ProductCatalogField
     {
         #region Statics

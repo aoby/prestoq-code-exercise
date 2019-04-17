@@ -1,4 +1,3 @@
-using System.Globalization;
 using PrestoQServicesEncoding;
 using Xunit;
 
@@ -9,6 +8,7 @@ namespace PrestoQServicesEncodingTest
         [Fact]
         public void ReadField()
         {
+            //                           positions: start(6) ->|                                   |<- end(40)
             string value = ProductCatalogReader.ReadField("xxxx This is the destination string     yyyy", 6, 40);
             Assert.Equal("This is the destination string", value);
         }
@@ -96,6 +96,17 @@ namespace PrestoQServicesEncodingTest
             var record = ProductCatalogReader.Parse(line);
             Assert.Equal("2 for $13.00", record.RegularDisplayPrice);
             Assert.Equal(6.50m, record.RegularCalculatorPrice);
+        }
+
+        [Fact]
+        public void ParseNoPromotionalPrice()
+        {
+            const string line =
+                "80000001 Kimchi-flavored white rice                                  00000567 00000000 00000000 00000000 00000000 00000000 NNNNNNNNN      18oz";
+
+            var record = ProductCatalogReader.Parse(line);
+            Assert.Null(record.PromotionalDisplayPrice);
+            Assert.Null(record.PromotionalCalculatorPrice);
         }
 
         [Fact]
