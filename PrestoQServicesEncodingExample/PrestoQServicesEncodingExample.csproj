@@ -16,5 +16,7 @@
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
   </ItemGroup>
-  <Import Project="..\PrestoQServicesEncoding\PrestoQServicesEncoding.projitems" Label="Shared" Condition="Exists('..\PrestoQServicesEncoding\PrestoQServicesEncoding.projitems')" />
+  <ItemGroup>
+    <ProjectReference Include="..\PrestoQServicesEncoding\PrestoQServicesEncoding.csproj" />
+  </ItemGroup>
 </Project>

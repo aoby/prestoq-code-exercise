@@ -5,14 +5,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrestoQServicesEncodingTest
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrestoQServicesEncodingExample", "PrestoQServicesEncodingExample\PrestoQServicesEncodingExample.csproj", "{A023028B-16B5-4E0B-ABF0-7373589C0441}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "PrestoQServicesEncoding", "PrestoQServicesEncoding\PrestoQServicesEncoding.shproj", "{BCCCC282-1F3C-4CAF-B531-9C4590A07BDB}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{EC19FA94-7C8F-40FC-9AC6-20875D6870FD}"
 	ProjectSection(SolutionItems) = preProject
 		LICENSE = LICENSE
-		README.md = README.md
 		appveyor.yml = appveyor.yml
+		README.md = README.md
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrestoQServicesEncoding", "PrestoQServicesEncoding\PrestoQServicesEncoding.csproj", "{59535385-7666-40E8-8D1B-62A3E1BAD642}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,8 +28,14 @@ Global
 		{A023028B-16B5-4E0B-ABF0-7373589C0441}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A023028B-16B5-4E0B-ABF0-7373589C0441}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A023028B-16B5-4E0B-ABF0-7373589C0441}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59535385-7666-40E8-8D1B-62A3E1BAD642}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59535385-7666-40E8-8D1B-62A3E1BAD642}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59535385-7666-40E8-8D1B-62A3E1BAD642}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59535385-7666-40E8-8D1B-62A3E1BAD642}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		outputpath = ../PrestoQServicesEncodingExample/build/bin
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
 EndGlobal
